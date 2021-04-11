@@ -1,4 +1,5 @@
 #include<string>
+Using namespace std;
 
-index = "index.txt";
-dataResource = "dataResource.txt";
+string index = "index.txt";
+string dataResource = "dataResource.txt";
