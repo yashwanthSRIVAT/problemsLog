@@ -18,7 +18,7 @@ TOTAL- tells the count of questions stored in the application.
 
 Advanced operation:
 
-SEARCH: effectively searches for questions or by text or its index.
+SEARCH: effectively searches for questions by text or by its index.
 
 I don't hope to add the SEARCH functionality just yet. 
 
