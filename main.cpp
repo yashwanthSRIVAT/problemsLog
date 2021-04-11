@@ -14,6 +14,7 @@ string dataResource = "dataResource.txt";
 
 
 
+
 class Operator{
   
       int getIndex(){
