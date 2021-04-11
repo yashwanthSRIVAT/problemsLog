@@ -1,10 +1,9 @@
 #include<iostream>
 #include<string>
-//#include"Operators.h"
 
 using namespace std;
-string indexFilename = "index.txt";
-string dataResource = "dataResource.txt";
+//string indexFilename = "index.txt";
+//string dataResource = "dataResource.txt";
 
 #include<fstream>
 #include<string>
@@ -14,43 +13,32 @@ string dataResource = "dataResource.txt";
 
 
 
-
 class Operator{
-  
+  //Private methods and members
+
       int getIndex(){
+      //Method to get index (count) from the index file
+
       ifstream indexFile(/*indexFilename.c_str()*/ "index.txt");
       
-      if(indexFile.is_open()){
-        cout<<"open"<<endl;
-      }
-      else{cout<<"error\n";}
-      
       char ch;
-      
-      indexFile.get(ch);
       stringstream str;
-      str<<ch;
-      
       int index;
-      str>>index;
-      cout<<"Index in getIndex(): "<<index<<endl;
-      indexFile.close();
-      return index;
       
-     /* //indexFile.get(index);
-      //stringstream index = index;
-      index = (int)index;
-      //cout<<"Index in getIndex() method : "<<index<<endl;
+      indexFile.get(ch);             //get the index in the form of character. 
+      
+      str<<ch;                       //these two lines are used to convert the index taken from the index file
+      str>>index;                    //from character to integer
       
       indexFile.close();
-      return index;*/
+      return index;p
         
     }
     
     void incrementIndex(int index){
       ofstream indexFile(/*indexFilename.c_str()*/"index.txt", ios:: trunc);
       indexFile<<++index;
-      indexFile.close();
+      indexFile.close();             //File opened in truncate mode; the value is updated(replaced) instead of getting added after the previous index. 
     }
   
     string question;
@@ -58,47 +46,39 @@ class Operator{
     
     public:
       
-      string indexFilename;
-      string dataResource;
+      string indexFilename;          //member file to store index file path (currently not in use). 
+      string dataResource;           //member file to store dataResource file path (currently not in use). 
       
-      /*Operator(string index, string data){
-        indexFilename = index;
-        dataResource = data;
-      }*/
       
     void add(){
+
+      //Main execution can be considered to start from here..
       cout<<"Enter question:\n";
-      getline(cin, question);
+      getline(cin, question);           //cin>>question will only take the first word in the input sentence, thus replaced by getline function. 
       
-      int index = getIndex();
-      cout<<"Index in add() after calling getIndex(): \n"<<index<<endl;       
+      int index = getIndex();           //get the index value
+      string index_ = to_string(index+1); //make a string whole value is (index+1)
+                                         //In index file, the number of questions Is stored, thus while adding another question, the index should be incremented.
+                                         
+      putString = index_ + ". " + question +"\n"; 
+                                         //User inputs the question in the form ofba sentence; this adds the index number before the question. 
       
-      // char index_ = char(index+1);
-      
-      string index_ = to_string(index+1);cout<<index_<<endl;
-      
-      putString = index_ + ". " + question +"\n";
-      cout<<"String entered is "<<putString;
-      incrementIndex(index);
       ofstream targetFile("dataResource.txt", ios::app);
+                                         //Adding the question with index to the resource file in append mode. 
+        targetFile<<putString;
+        targetFile.close();
       
+      incrementIndex(index);             //increments question count in index file. 
       
-      if(targetFile.is_open()){
-        cout<<"open"<<endl;
-      }
-      else{cout<<"error\n";}
-      
-      
-      targetFile<<putString;
-      targetFile.close();
-      
+      cout<<"Added "<<putString<<endl;
+                                         //Confirmation message. 
     }
     
 };
 
 int main()
 {
-  Operator op;
+  Operator op;                           //Self-explanatory stuff..
   op.add();
   exit (0);
 }
