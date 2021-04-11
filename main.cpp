@@ -1,9 +1,8 @@
 #include<iostream>
 #include<string>
+#include "private.cpp"
 
 using namespace std;
-//string indexFilename = "index.txt";
-//string dataResource = "dataResource.txt";
 
 #include<fstream>
 #include<string>
@@ -43,12 +42,16 @@ class Operator{
   
     string question;
     string putString;
-    
-    public:
       
       string indexFilename;          //member file to store index file path (currently not in use). 
       string dataResource;           //member file to store dataResource file path (currently not in use). 
       
+    public:
+    Operator(string in, string data){
+
+      indexFilename = in;
+      dataResource = data;
+    }
       
     void add(){
 
@@ -78,7 +81,7 @@ class Operator{
 
 int main()
 {
-  Operator op;                           //Self-explanatory stuff..
+  Operator op(index, data);                           //Self-explanatory stuff..
   op.add();
   exit (0);
 }
