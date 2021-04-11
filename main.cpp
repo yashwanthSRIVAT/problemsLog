@@ -57,7 +57,7 @@ class Operator{
       getline(cin, question);           //cin>>question will only take the first word in the input sentence, thus replaced by getline function. 
       
       int index = getIndex();           //get the index value
-      string index_ = to_string(index+1); //make a string whole value is (index+1)
+      string index_ = to_string(index+1); //make a string whose value is (index+1)
                                          //In index file, the number of questions Is stored, thus while adding another question, the index should be incremented.
                                          
       putString = index_ + ". " + question +"\n"; 
