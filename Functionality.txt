@@ -1,0 +1,30 @@
+This file tells functionality of add() method and all the other methods related to this method(). 
+
+add()
+
+-> Takes input question (string) from user
+-> Gets index (int) from getIndex() method
+-> Combines question and the index. Eg: 
+      Input question:
+             What is a Pointer?
+      After combining index and question:
+             1. What is a Pointer?  (If the index was initially 0). 
+-> Adds this formatted question into the dataResource file. 
+-> Increments the index in the index file, in other words, increases the count by one, because we just added a question. 
+
+
+getIndex()
+
+-> Opens the index file. 
+-> Gets the Index as a character. 
+-> Converts this character into an integer using stringstream object. 
+-> Returns this integer to the add() method;
+
+incrementIndex()
+
+-> Takes the previously generated index from add(). 
+-> Opens the index file in ios::out || ios::trunc (write mode + truncate mode/replacement mode). 
+-> Increments the index and puts it into the index file, thus replacing the previous index with the new and correct index.  
+-> This method takes index from add() in order to avoid opening the index file in read mode again. 
+
+Happy Programming!!
