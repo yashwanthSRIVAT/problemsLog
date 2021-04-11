@@ -30,7 +30,7 @@ class Operator{
       str>>index;                    //from character to integer
       
       indexFile.close();
-      return index;p
+      return index;
         
     }
     
