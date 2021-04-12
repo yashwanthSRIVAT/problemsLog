@@ -21,7 +21,7 @@ class Operator{
         
     }
     
-    void incrementIndex(int index){
+    void incrementIndex(){
       ofstream indexFile(indexFilename.c_str(), ios:: trunc);
       indexFile<<++index;
       indexFile.close();             //File opened in truncate mode; the value is updated(replaced) instead of getting added after the previous index. 
@@ -30,35 +30,34 @@ class Operator{
     string question;
     string putString;
       
-      string indexFilename;          //member file to store index file path (currently not in use). 
-      string dataResource;           //member file to store dataResource file path (currently not in use). 
+    string indexFilename;          //member to store index file path (currently in use after update). 
+    string dataResource;           //member to store dataResource file path (currently in use after update). 
       
-    public:
-    Operator(string in, string data){
+    int index;
 
-      indexFilename = in;
-      dataResource = data;
+    public:
+    Operator(string in, string data): indexFilename(in), dataResource(data){
+           index = getIndex();       //get the index value
     }
       
     void add(){
 
       //Main execution can be considered to start from here..
       cout<<"Enter question:\n";
-      getline(cin, question);           //cin>>question will only take the first word in the input sentence, thus replaced by getline function. 
-      
-      int index = getIndex();           //get the index value
+      getline(cin, question);           //cin>>question will only take the first word in the input sentence, thus replaced by getline() function. 
+          
       string index_ = to_string(index+1); //make a string whose value is (index+1)
-                                         //In index file, the number of questions Is stored, thus while adding another question, the index should be incremented.
+                                         //index is the number of questions stored in the dataResource file, thus while adding another question, the index should be incremented.
                                          
       putString = index_ + ". " + question +"\n"; 
-                                         //User inputs the question in the form ofba sentence; this adds the index number before the question. 
+                                         //User inputs the question in the form of a sentence; this adds the index number before the question. 
       
       ofstream targetFile(dataResource.c_str(), ios::app);
                                          //Adding the question with index to the resource file in append mode. 
         targetFile<<putString;
         targetFile.close();
       
-      incrementIndex(index);             //increments question count in index file. 
+      incrementIndex();             //increments question count in index file. 
       
       cout<<"Added "<<putString<<endl;
                                          //Confirmation message. 
