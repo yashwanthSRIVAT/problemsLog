@@ -1,6 +1,6 @@
 #include<iostream>
 #include<string>
-#include "private.cpp"
+#include "private.h"
 #include<fstream>
 
 using namespace std;
