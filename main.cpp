@@ -18,16 +18,10 @@ class Operator{
       int getIndex(){
       //Method to get index (count) from the index file
 
-      ifstream indexFile(/*indexFilename.c_str()*/ "index.txt");
+      ifstream indexFile(indexFilename.c_str());
       
-      char ch;
-      stringstream str;
       int index;
-      
-      indexFile.get(ch);             //get the index in the form of character. 
-      
-      str<<ch;                       //these two lines are used to convert the index taken from the index file
-      str>>index;                    //from character to integer
+      indexFile>>index;        //get the index in the form of Integer.
       
       indexFile.close();
       return index;
@@ -35,7 +29,7 @@ class Operator{
     }
     
     void incrementIndex(int index){
-      ofstream indexFile(/*indexFilename.c_str()*/"index.txt", ios:: trunc);
+      ofstream indexFile(indexFilename.c_str(), ios:: trunc);
       indexFile<<++index;
       indexFile.close();             //File opened in truncate mode; the value is updated(replaced) instead of getting added after the previous index. 
     }
@@ -66,7 +60,7 @@ class Operator{
       putString = index_ + ". " + question +"\n"; 
                                          //User inputs the question in the form ofba sentence; this adds the index number before the question. 
       
-      ofstream targetFile("dataResource.txt", ios::app);
+      ofstream targetFile(dataResource.c_str(), ios::app);
                                          //Adding the question with index to the resource file in append mode. 
         targetFile<<putString;
         targetFile.close();
