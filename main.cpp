@@ -1,16 +1,9 @@
 #include<iostream>
 #include<string>
 #include "private.cpp"
+#include<fstream>
 
 using namespace std;
-
-#include<fstream>
-#include<string>
-#include<sstream>
-#include<iostream>
-
-
-
 
 class Operator{
   //Private methods and members
