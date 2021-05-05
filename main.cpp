@@ -73,17 +73,19 @@ class Operator{
     }
     
 };
-
 int main()
 {
   Operator op(index, data);                           //Self-explanatory stuff..
   int i;
 
-  cout<<"1. Add question\n2. Show Questions\nEnter your option:"
+  cout<<"1. Add question\n2. Show Questions\nEnter your option:";
+  cin>>i;
   switch(i){
-     case: 1{op.add();break;}
+     case 1: op.add();
+             break;
 
-     case: 2{op.show;break;}
+     case 2: op.show();
+             break;
   }
   exit (0);
 }
