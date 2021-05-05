@@ -44,6 +44,9 @@ class Operator{
 
       //Main execution can be considered to start from here..
       cout<<"Enter question:\n";
+      std::cin.clear();
+      std::cin.ignore(/*std::numeric_limits<std::streamsize>::max(), '\n'*/);
+      
       getline(cin, question);           //cin>>question will only take the first word in the input sentence, thus replaced by getline() function. 
           
       string index_ = to_string(index+1); //make a string whose value is (index+1)
