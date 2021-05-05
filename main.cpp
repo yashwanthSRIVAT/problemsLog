@@ -62,12 +62,28 @@ class Operator{
       cout<<"Added "<<putString<<endl;
                                          //Confirmation message. 
     }
+
+    void show(){
+      cout<<"Solved Problems:\n";
+      char ch;
+      ifstream dataFile(dataResource);
+      while (dataFile.get(ch)) {
+        cout<<ch;
+      }
+    }
     
 };
 
 int main()
 {
   Operator op(index, data);                           //Self-explanatory stuff..
-  op.add();
+  int i;
+
+  cout<<"1. Add question\n2. Show Questions\nEnter your option:"
+  switch(i){
+     case: 1{op.add();break;}
+
+     case: 2{op.show;break;}
+  }
   exit (0);
 }
