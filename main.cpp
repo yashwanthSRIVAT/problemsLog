@@ -77,7 +77,7 @@ int main()
 {
   Operator op(index, data);                           //Self-explanatory stuff..
   int i;
-
+  while(1){
   cout<<"1. Add question\n2. Show Questions\nEnter your option:";
   cin>>i;
   switch(i){
@@ -86,6 +86,8 @@ int main()
 
      case 2: op.show();
              break;
+     case 3: exit (0);
+  }
   }
   exit (0);
 }
