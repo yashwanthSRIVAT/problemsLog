@@ -81,7 +81,7 @@ int main()
   Operator op(index, data);                           //Self-explanatory stuff..
   int i;
   while(1){
-  cout<<"1. Add question\n2. Show Questions\nEnter your option:";
+  cout<<"1. Add question\n2. Show Questions\n3. Exit\nEnter your option:";
   cin>>i;
   switch(i){
      case 1: op.add();
