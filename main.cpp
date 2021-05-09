@@ -62,18 +62,26 @@ class Operator{
       
       incrementIndex();             //increments question count in index file. 
       
-      cout<<"Added "<<putString<<endl;
+      cout<<"\nAdded "<<putString<<endl;
                                          //Confirmation message. 
     }
 
     void show(){
-      cout<<"Solved Problems:\n";
+      cout<<"\nSolved Problems:\n";
       char ch;
       ifstream dataFile(dataResource);
       while (dataFile.get(ch)) {
         cout<<ch;
       }
+      
     }
+
+    void count(){
+	ifstream indexFile(indexFilename.c_str());                                                                      int index;                                              indexFile>>index;
+
+	cout<<"\nNumber of questions solved: "<<index<<endl<<endl;
+    }
+
     
 };
 int main()
@@ -81,15 +89,23 @@ int main()
   Operator op(index, data);                           //Self-explanatory stuff..
   int i;
   while(1){
-  cout<<"1. Add question\n2. Show Questions\n3. Exit\nEnter your option:";
+  cout<<"\n////////////////////\n1. Add question\n2. Show Questions\n3.Number of questions Solved\n4. Exit\nEnter your option:";
   cin>>i;
   switch(i){
      case 1: op.add();
+	     cout<<"////////////////////\n";
              break;
 
      case 2: op.show();
+	     cout<<"\n////////////////////\n";
              break;
-     case 3: exit (0);
+     case 3: op.count();
+	     cout<<"////////////////////\n";
+	     break;
+     case 4: cout<<"////////////////////\n";
+	     exit (0);
+     default : cout<<"\nInvlaid Option!\n";
+	       break;
   }
   }
   exit (0);
